@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 // second parameter
 const UseEffectBasics = () => {
   const [value, setValue] = useState(0);
+  
   useEffect(() => {
     console.log('call useEffect');
     if (value > 0) {
