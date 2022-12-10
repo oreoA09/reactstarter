@@ -318,3 +318,7 @@ p {
   text-transform: capitalize;
   cursor: pointer;
 }
+
+.gifImg{
+  width: 300px;
+}
