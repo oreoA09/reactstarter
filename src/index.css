@@ -231,6 +231,12 @@ p {
   grid-template-columns: 100px 1fr;
   align-items: center;
 }
+.form-controlTwo {
+  margin: 0.5rem 0;
+  display: grid;
+  grid-template-columns: 100px 60px;
+  align-items: center;
+}
 .form button {
   display: inline-block;
   background: var(--clr-black);
