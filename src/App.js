@@ -1,5 +1,5 @@
 import React from 'react'
-import Checkin from './tutorial/6-useReducer/final/index'
+import Checkin from './tutorial/7-prop-drilling/setup/1-prop-drilling'
 
 
 function App() {
