@@ -37,6 +37,7 @@ const Index = () => {
       )}
       <form onSubmit={handleSubmit} className='form'>
         <div>
+          <h4>Create your shopping list</h4>
           <input
             type='text'
             value={name}
