@@ -1,5 +1,5 @@
 import React from 'react'
-import Checkin from './tutorial/8-useContext/setup/1-context-api'
+import Checkin from './tutorial/6-useReducer/setup/index'
 
 
 function App() {
