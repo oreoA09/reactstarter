@@ -6,6 +6,7 @@ const Modal = ({ modalContent, closeModal }) => {
       closeModal();
     }, 3000);
   });
+  
   return (
     <div className='modal'>
       <p>{modalContent}</p>

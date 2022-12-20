@@ -1,5 +1,5 @@
 import React from 'react'
-import Checkin from './tutorial/5-useRef/setup/1-useRef-basics'
+import Checkin from './tutorial/6-useReducer/final/index'
 
 
 function App() {

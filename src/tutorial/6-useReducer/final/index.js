@@ -3,18 +3,24 @@ import Modal from './Modal';
 import { data } from '../../../data';
 // reducer function
 import { reducer } from './reducer';
+
+
 const defaultState = {
   people: [],
   isModalOpen: false,
   modalContent: '',
 };
+
 const Index = () => {
   const [name, setName] = useState('');
+
   const [state, dispatch] = useReducer(reducer, defaultState);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name) {
       const newItem = { id: new Date().getTime().toString(), name };
+      
       dispatch({ type: 'ADD_ITEM', payload: newItem });
       setName('');
     } else {
