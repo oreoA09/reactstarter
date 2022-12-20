@@ -1,62 +1,85 @@
-import React, { useState } from 'react';
-// JS
-// const input = document.getElementById('myText');
-// const inputValue = input.value
-// React
-// value, onChange
-// dynamic object keys
+import React, { useState } from "react";
 
-const ControlledInputs = () => {
-  const [firstName, setFirstName] = useState('');
-  const [email, setEmail] = useState('');
+const MultipleInputs = () => {
+  const [person, setPerson] = useState({ username: "", email: "", age: "" });
   const [people, setPeople] = useState([]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (firstName && email) {
-      const person = { id: new Date().getTime().toString(), firstName, email };
-      console.log(person);
-      setPeople((people) => {
-        return [...people, person];
-      });
-      setFirstName('');
-      setEmail('');
-    } else {
-      console.log('empty values');
-    }
-  };
+
+const handleChange = (e) => {
+  const name = e.target.name;
+  const value = e.target.value;
+
+  setPerson({ ...person, [name]: value });
+};
+
+const handleSubmit = (e) => {
+  e.preventDefault();
+  if (person.username && person.email && person.age) {
+    const newUser = { ...person, id: new Date().getTime().toString() };
+    setPeople([...people, newUser]);
+    setPerson({ username: "", email: "", age: "" });
+  }
+}
   return (
     <>
-      <article>
-        <form className='form' onSubmit={handleSubmit}>
-          <div className='form-control'>
-            <label htmlFor='firstName'>Name : </label>
+      <article className="form">
+        <form>
+          <div className="form-control">
+            <label htmlFor="username">Username : </label>
             <input
-              type='text'
-              id='firstName'
-              name='firstName'
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
+              type="text"
+              id="username"
+              name="username"
+              value={person.username}
+              onChange={handleChange}
             />
           </div>
-          <div className='form-control'>
-            <label htmlFor='email'>Email : </label>
+          <div className="form-control">
+            <label htmlFor="email">Email : </label>
             <input
-              type='email'
-              id='email'
-              name='email'
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              type="email"
+              id="email"
+              name="email"
+              value={person.email}
+              onChange={handleChange}
             />
           </div>
-          <button type='submit'>add person</button>
+          <div className="form-control">
+            <label htmlFor="age">Age : </label>
+            <input
+              type="number"
+              id="age"
+              name="age"
+              value={person.age}
+              onChange={handleChange}
+            />
+          </div>
+          <button type="submit" className="btn" onClick={handleSubmit}>
+            Add User
+          </button>
         </form>
-        {people.map((person, index) => {
-          const { id, firstName, email } = person;
-          return (
-            <div className='item' key={id}>
-              <h4>{firstName}</h4>
+      </article>
+
+      <article>
+        <div>
+          Key:
+          <span style={{margin:'0px 20px'}}>UnderAge <div style={{backgroundColor:'#ffc0c0', width:20, height:20, display:"inline-flex"}}></div></span>
+
+          <span>Adult <div style={{backgroundColor:'#c0ffc0', width:20, height:20, display:"inline-flex"}}></div></span>
+        </div>
+        {people.map((person) => {
+          const { id, username, email, age } = person;
+          return age<=18 ? (
+            <div key={id} className="item" style={{backgroundColor:'#ffc0c0'}}>
+              <h4>{username}</h4>
               <p>{email}</p>
+              <p>{age}</p>
+            </div>
+          ): (
+            <div key={id} className="item" style={{backgroundColor:'#c0ffc0'}}>
+              <h4>{username}</h4>
+              <p>{email}</p>
+              <p>{age}</p>
             </div>
           );
         })}
@@ -65,4 +88,4 @@ const ControlledInputs = () => {
   );
 };
 
-export default ControlledInputs;
+export default MultipleInputs
