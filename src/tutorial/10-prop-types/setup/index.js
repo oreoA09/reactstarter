@@ -10,7 +10,7 @@ const Index = () => {
   const { products } = useFetch(url)
   return (
     <div>
-      <h2>products</h2>
+      <h2>Inventory</h2>
       <section className='products'>
         {products.map((product) => {
           return <Product key={product.id} {...product} />

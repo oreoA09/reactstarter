@@ -1,6 +1,5 @@
 import React from 'react'
-import Checkin from './tutorial/9-custom-hooks/setup/1-fetch-example'
-
+import Checkin from './tutorial/10-prop-types/setup/index'
 
 function App() {
   return (
