@@ -1,5 +1,5 @@
 import React from 'react'
-import Checkin from './tutorial/10-prop-types/setup/index'
+import Checkin from './tutorial/11-react-router/setup/index'
 
 function App() {
   return (
